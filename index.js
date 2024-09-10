@@ -13,7 +13,7 @@ const PORT = process.env.PORT || 8000;
 
 // Middleware
 app.use(cors({
-  origin: ["http://localhost:5173", "https://front-architectus.vercel.app"],
+  origin: "*",
   credentials: true,
   methods: 'GET,POST,PUT,DELETE',
 }));
