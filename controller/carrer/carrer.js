@@ -2,8 +2,9 @@ const carrerModel = require('../../models/carrerModel');
 
 const saveCarrerController = async (req, res) => {
     try {
-
+        
         const formData = req.body;
+        
         const resumePath = req.file ? req.file.path : null;
 
 
