@@ -15,7 +15,7 @@
   const allowedOrigins = [
     'http://localhost:5174',
     'https://mern-architectus-bureau.vercel.app',
-    'https://front-architectus.vercel.app'
+    // 'https://front-architectus.vercel.app'
   ];
   
   app.use(cors({
