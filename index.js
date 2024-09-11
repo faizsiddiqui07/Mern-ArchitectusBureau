@@ -12,26 +12,11 @@
   const PORT = process.env.PORT || 8000;
 
   // Middleware
-  const allowedOrigins = [
-    'http://localhost:5174',
-    'https://front-architectus.vercel.app'
-  ];
-  
   app.use(cors({
-  origin: function (origin, callback) {
-    // Allow requests with no origin (like mobile apps or curl requests)
-    if (!origin) return callback(null, true);
-
-    // Check if the origin is allowed
-    if (allowedOrigins.includes(origin)) {
-      callback(null, true);
-    } else {
-      callback(new Error('Not allowed by CORS'));
-    }
-  },
-  credentials: true, // This is necessary if you're using cookies or authorization headers
-  methods: 'GET,POST,PUT,DELETE',
-}));
+    origin: '*', // Temporarily allow all origins
+    credentials: true,
+    methods: 'GET,POST,PUT,DELETE',
+  }));
 
   
   app.use(express.json());
