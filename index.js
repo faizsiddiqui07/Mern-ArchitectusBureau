@@ -15,23 +15,25 @@
   const allowedOrigins = [
     'http://localhost:5174',
     'https://mern-architectus-bureau.vercel.app',
-    // 'https://front-architectus.vercel.app'
+    'https://front-architectus.vercel.app'
   ];
   
   app.use(cors({
-    origin: function (origin, callback) {
-      // Allow requests with no origin (like mobile apps or curl requests)
-      if (!origin) return callback(null, true);
-      
-      if (allowedOrigins.includes(origin)) {
-        return callback(null, true);
-      } else {
-        return callback(new Error('Not allowed by CORS'));
-      }
-    },
-    credentials: true,
-    methods: 'GET,POST,PUT,DELETE',
-  }));
+  origin: function (origin, callback) {
+    // Allow requests with no origin (like mobile apps or curl requests)
+    if (!origin) return callback(null, true);
+
+    // Check if the origin is allowed
+    if (allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
+  credentials: true, // This is necessary if you're using cookies or authorization headers
+  methods: 'GET,POST,PUT,DELETE',
+}));
+
   
   app.use(express.json());
   app.use(cookieParser());
