@@ -14,6 +14,7 @@ const updateProjectController = require("../controller/projects/updateProject")
 const getCategoryWiseProjectController = require("../controller/projects/getCategoryWiseProject")
 const {subscriberController, getAllSubscribers} = require("../controller/subscribers/subscriber")
 const { saveCarrerController, getCarrerController, deleteCarrerController } = require("../controller/carrer/carrer")
+const searchProject = require('../controller/projects/searchProject')
 
 const router = express.Router()
 const multer = require('multer')
@@ -57,6 +58,7 @@ router.get('/api/getSubscribers',getAllSubscribers)
 router.get('/api/getProject', getWebsiteProjectController)
 router.post('/api/projectDetails', getSingleProjectController)
 router.post('/api/getRelatedProject', getRelatedProjectController)
+router.get('/api/search', searchProject)
 
 
 // for website expertise
