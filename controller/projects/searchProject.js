@@ -2,13 +2,9 @@ const projectModel = require("../../models/project.model");
 
 
 const searchProject = async (req, res) => {
-  console.log("call");
-
   try {
-    console.log("calling...");
 
     const query = req.query.q;
-    console.log(query);
 
     if (!query) {
       return res.status(400).json({
@@ -21,8 +17,10 @@ const searchProject = async (req, res) => {
     const regex = new RegExp(query, 'i');  // 'i' makes it case-insensitive
 
     const product = await projectModel.find({
-      productName: { $regex: regex }  // Match product name against the regex
+      projectName: { $regex: regex }  // Match product name against the regex
     });
+    console.log(product);
+    
 
     res.json({
       data: product,
