@@ -13,9 +13,12 @@ const uploadProjectController = async (req, res) => {
             });
         }
 
+        const lowerCaseProjectName = projectName.trim().toLowerCase();
+        const slug = lowerCaseProjectName.split(' ').join('-');
+
         const uploadProject = new projectModel({
             projectName: projectName.trim(),
-            slug: projectName.trim().split(' ').join('-'),
+            slug: slug,
             ...req.body,
         }
     )
