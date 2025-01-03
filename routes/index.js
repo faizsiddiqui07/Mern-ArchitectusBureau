@@ -4,12 +4,6 @@ const uploadProjectController = require("../controller/projects/uploadProjects")
 const { getProjectController, getWebsiteProjectController, getSingleProjectController, getRelatedProjectController } = require("../controller/projects/getProject")
 const deleteProjectController = require("../controller/projects/deleteProject")
 const updateProjectStatusController = require("../controller/projects/updateProjectStatus")
-const addExpertiseController = require("../controller/expertise/addExpertise")
-const { getExpertiseController, getWebsiteExpertiseController, getSingleExpertiseController } = require("../controller/expertise/getExpertise")
-const updateExpertiseStatusController = require("../controller/expertise/updateExpertiseStatus")
-const deleteExpertiseController = require("../controller/expertise/deleteExpertise")
-const getCategoryWiseExpertiseController = require("../controller/expertise/getCategoryWiseExpertise")
-const updateExpertiseController = require("../controller/expertise/updateExpertise")
 const updateProjectController = require("../controller/projects/updateProject")
 const getCategoryWiseProjectController = require("../controller/projects/getCategoryWiseProject")
 const {subscriberController, getAllSubscribers} = require("../controller/subscribers/subscriber")
@@ -42,14 +36,6 @@ router.put('/api/updateProjectStatus/:project_id', updateProjectStatusController
 router.get('/api/getCategoryWiseProject/:project_id', getCategoryWiseProjectController)
 router.put('/api/updateProject/:project_id', updateProjectController)
 
-//Expertise Dashboard
-router.post('/api/add-expertise', addExpertiseController)
-router.get('/api/get-expertise', getExpertiseController)
-router.delete('/api/delete-expertise/:expertise_id', deleteExpertiseController)
-router.put('/api/updateExpertiseStatus/:expertise_id', updateExpertiseStatusController)
-router.get('/api/getCategoryWiseExpertise/:expertise_id', getCategoryWiseExpertiseController)
-router.put('/api/updateExpertise/:expertise_id', updateExpertiseController)
-
 // Subscribed
 router.post('/api/subscribe', subscriberController)
 router.get('/api/getSubscribers',getAllSubscribers)
@@ -60,10 +46,6 @@ router.post('/api/projectDetails', getSingleProjectController)
 router.post('/api/getRelatedProject', getRelatedProjectController)
 router.get('/api/search', searchProject)
 
-
-// for website expertise
-router.get('/api/getExpertise', getWebsiteExpertiseController)
-router.post('/api/expertiseDetails', getSingleExpertiseController)
 
 // for website carrer
 router.post('/api/uploadCarrers', upload.single("resume"), saveCarrerController)
