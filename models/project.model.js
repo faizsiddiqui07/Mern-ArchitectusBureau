@@ -1,14 +1,10 @@
 const mongoose = require('mongoose')
 
 const projectSchema = mongoose.Schema({
-    projectName: String,
     projectType: String,
     projectImage: [],
-    completionDate: String,
     slug: String,
-    projectAddress: String,
-    description: String,
-    status: { 
+    status: {
         type: String,
         default: 'pending'
     },
@@ -16,5 +12,5 @@ const projectSchema = mongoose.Schema({
     timestamps: true
 })
 
-const projectModel = mongoose.model("product", projectSchema)
+const projectModel = mongoose.model("project", projectSchema)
 module.exports = projectModel

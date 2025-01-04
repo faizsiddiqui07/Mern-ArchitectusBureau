@@ -3,7 +3,7 @@ const projectModel = require('../../models/project.model')
 const uploadProjectController = async (req, res) => {
     try {
 
-        const { projectName } = req.body;
+        const { projectName } = req.body; 
 
         if (!req.body) {
             return res.json({
