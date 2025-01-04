@@ -6,6 +6,7 @@ const updateProjectController = async (req, res) => {
         const { _id, projectType, projectImage } = req.body;
 
         const updateProject = await projectModel.findByIdAndUpdate(_id, {
+            slug: projectType.split(' ').join('-'),
             projectType,
             projectImage,
         })
