@@ -3,16 +3,11 @@ const projectModel = require("../../models/project.model");
 const updateProjectController = async (req, res) => {
     try {
 
-        const { _id, projectName, projectType,projectImage,completionDate,projectAddress,description } = req.body;
+        const { _id, projectType, projectImage } = req.body;
 
         const updateProject = await projectModel.findByIdAndUpdate(_id, {
-            projectName: projectName.trim(),
-            slug: projectName.trim().split(' ').join('-'),
             projectType,
             projectImage,
-            completionDate,
-            projectAddress,
-            description
         })
 
         res.json({

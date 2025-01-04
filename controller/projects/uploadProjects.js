@@ -1,9 +1,8 @@
 const projectModel = require('../../models/project.model')
 
 const uploadProjectController = async (req, res) => {
+    
     try {
-
-        const { projectName } = req.body; 
 
         if (!req.body) {
             return res.json({
@@ -13,12 +12,7 @@ const uploadProjectController = async (req, res) => {
             });
         }
 
-        const lowerCaseProjectName = projectName.trim().toLowerCase();
-        const slug = lowerCaseProjectName.split(' ').join('-');
-
         const uploadProject = new projectModel({
-            projectName: projectName.trim(),
-            slug: slug,
             ...req.body,
         }
     )
