@@ -42,37 +42,37 @@ const getWebsiteProjectController = async (req, res) => {
     }
 }
 
-// const getSingleProjectController = async (req, res) => { 
-//     try {
+const getSingleProjectController = async (req, res) => { 
+    try {
 
-//         const { slug } = req.body;
+        const { slug } = req.params;
 
-//         const project = await projectModel.findOne({ slug })
+        const project = await projectModel.findOne({ slug })
 
-//         if (!project) {
-//             return res.status(404).json({
-//                 message: 'Project not found',
-//                 success: false,
-//                 error: true
-//             });
-//         }
+        if (!project) {
+            return res.status(404).json({
+                message: 'Project not found',
+                success: false,
+                error: true
+            });
+        }
 
-//         return res.status(200).json({
-//             data: project,
-//             message: "Ok",
-//             success: true,
-//             error: false,
-//         });
+        return res.status(200).json({
+            data: project,
+            message: "Ok",
+            success: true,
+            error: false,
+        });
 
 
-//     } catch (error) {
-//         res.status(400).json({
-//             message: error.message || error,
-//             error: true,
-//             success: false
-//         })
-//     }
-// }
+    } catch (error) {
+        res.status(400).json({
+            message: error.message || error,
+            error: true,
+            success: false
+        })
+    }
+}
 
 // const getRelatedProjectController = async (req, res) => {
 //     try {
@@ -110,6 +110,6 @@ const getWebsiteProjectController = async (req, res) => {
 module.exports = {
     getProjectController,
     getWebsiteProjectController,
-    // getSingleProjectController,
+    getSingleProjectController,
     // getRelatedProjectController
 };
