@@ -47,7 +47,7 @@ const getSingleProjectController = async (req, res) => {
 
         const { slug } = req.params;
 
-        const project = await projectModel.findOne({ slug })
+        const project = await projectModel.find({ slug })
 
         if (!project) {
             return res.status(404).json({
