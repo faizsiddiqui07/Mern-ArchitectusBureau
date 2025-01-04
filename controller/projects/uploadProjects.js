@@ -4,6 +4,8 @@ const uploadProjectController = async (req, res) => {
     
     try {
 
+        const { projectType } = req.body; 
+
         if (!req.body) {
             return res.json({
                 message: 'All fields are required',
@@ -12,7 +14,10 @@ const uploadProjectController = async (req, res) => {
             });
         }
 
+        const slug = projectType.split(' ').join('-');
+
         const uploadProject = new projectModel({
+            slug: slug,
             ...req.body,
         }
     )
