@@ -1,7 +1,7 @@
 const express = require("express")
 const authlogin = require('../controller/admin/authlogin')
 const uploadProjectController = require("../controller/projects/uploadProjects")
-const { getProjectController, getWebsiteProjectController, getSingleProjectController, getRelatedProjectController } = require("../controller/projects/getProject")
+const { getProjectController, getWebsiteProjectController } = require("../controller/projects/getProject")
 const deleteProjectController = require("../controller/projects/deleteProject")
 const updateProjectStatusController = require("../controller/projects/updateProjectStatus")
 const updateProjectController = require("../controller/projects/updateProject")
@@ -42,8 +42,8 @@ router.get('/api/getSubscribers',getAllSubscribers)
 
 // for website project
 router.get('/api/getProject', getWebsiteProjectController)
-router.post('/api/projectDetails', getSingleProjectController)
-router.post('/api/getRelatedProject', getRelatedProjectController)
+// router.post('/api/projectDetails', getSingleProjectController)
+// router.post('/api/getRelatedProject', getRelatedProjectController)
 router.get('/api/search', searchProject)
 
 
