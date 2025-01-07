@@ -24,7 +24,7 @@ const getProjectController = async (req, res) => {
 // for website
 const getWebsiteProjectController = async (req, res) => {
     try {
-        const allProject = await projectModel.find({ status: 'active' }).sort({ createdAt: -1 });
+        const allProject = await projectModel.find({ status: 'active' });
 
 
         res.json({
